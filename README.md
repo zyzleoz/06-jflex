@@ -38,11 +38,6 @@
  */
 
 /* Definição: seção para código do usuário. */
-%{
-    public String getLexema() {
-        return yytext(); // Apenas retorna o valor de yytext().
-    }
-%}
 
 %%
 
@@ -53,6 +48,12 @@
 %line               // Permite usar yyline.
 %column             // Permite usar yycolumn.
 %class Scanner      // Troca o nome da classe Yylex para Scanner.
+
+%{
+    public String getLexema() {
+        return yytext(); // Apenas retorna o valor de yytext().
+    }
+%}
 
 // Macros:
 letra = [a-zA-Z]
