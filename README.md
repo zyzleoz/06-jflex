@@ -25,12 +25,6 @@
  
  * **%class Scanner**
 
-**OBS**: a diretiva "%function" permite definir um novo nome para o método **yytext()**.
-
-Exemplo:
-
-* **%function getLexema**
-
 # Exemplo: 
 
 ## Arquivo: exemplo.flex
@@ -44,7 +38,11 @@ Exemplo:
  */
 
 /* Definição: seção para código do usuário. */
-
+%{
+    public String getLexema() {
+        return yytext(); // Apenas retorna o valor de yytext().
+    }
+%}
 
 %%
 
@@ -55,7 +53,6 @@ Exemplo:
 %line               // Permite usar yyline.
 %column             // Permite usar yycolumn.
 %class Scanner      // Troca o nome da classe Yylex para Scanner.
-%function getLexema // Troca o nome do método yytext() para getLexema().
 
 // Macros:
 letra = [a-zA-Z]
