@@ -51,10 +51,11 @@ Exemplo:
 /* Opções e Declarações: seção para diretivas e macros. */
 
 // Diretivas:
-%standalone    // Execução independente do analisador sintático.
-%line          // Permite usar yyline.
-%column        // Permite usar yycolumn.
-%class Scanner // Troca o nome da classe Yylex para Scanner.
+%standalone         // Execução independente do analisador sintático.
+%line               // Permite usar yyline.
+%column             // Permite usar yycolumn.
+%class Scanner      // Troca o nome da classe Yylex para Scanner.
+%function getLexema // Troca o nome do método yytext() para getLexema().
 
 // Macros:
 letra = [a-zA-Z]
@@ -68,8 +69,8 @@ identificador = {letra}({letra}|{numero})*
  * o analisador léxico. 
  */
 
-{digito}        {System.out.println(" -> Encontrei um <Token: DIGITO, Lexema: "        + yytext() + ", Tamanho: " + yylength() + ", Linha: " + yyline + ", Coluna: " + yycolumn + ">");}
-{identificador} {System.out.println(" -> Encontrei um <Token: IDENTIFICADOR, Lexema: " + yytext() + ", Tamanho: " + yylength() + ", Linha: " + yyline + ", Coluna: " + yycolumn + ">");}
+{digito}        {System.out.println(" -> Encontrei um <Token: DIGITO, Lexema: "        + getLexema() + ", Tamanho: " + yylength() + ", Linha: " + yyline + ", Coluna: " + yycolumn + ">");}
+{identificador} {System.out.println(" -> Encontrei um <Token: IDENTIFICADOR, Lexema: " + getLexema() + ", Tamanho: " + yylength() + ", Linha: " + yyline + ", Coluna: " + yycolumn + ">");}
 </pre>
 
 ## Arquivo: entrada01.txt:
