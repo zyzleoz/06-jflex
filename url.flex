@@ -4,12 +4,12 @@
 %standalone // Execução independente do analisador sintático.
 
 
-/* ---------- MACROS ---------- */
+/*MACROS*/
 CARACTERE        = \w+
 LETRAS           = [a-z]+
 
 
-/* ---------- REGRAS ---------- */
+/*REGRAS*/
 %%
 
 "https://"{CARACTERE} \. {LETRAS}\.{LETRAS} {
